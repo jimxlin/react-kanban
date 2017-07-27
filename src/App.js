@@ -23,9 +23,23 @@ class App extends Component {
       cardCount: 3  // for creating card id
     };
   }
+
+  handleCreateCard(event) {
+
+  }
+
+  handleMoveCard(event) {
+
+  }
+
+  handleDeleteCard(event) {
+
+  }
+
   render() {
     const divBoards = this.state.boards.map(board =>
-      <Board key={board.id}
+      <Board key={board.id.toString()}
+        id={board.id}
         name={board.name}
         cards={board.cards}
       />

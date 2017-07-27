@@ -15,10 +15,11 @@ const ulStyle = {
   padding: '0'
 }
 
-function Board({name, cards}) {
+function Board({ id, name, cards }) {
   const listCards = cards.map(card =>
-    <Card
-      key={card.id.toString()}
+    <Card key={card.id.toString()}
+      id={card.id}
+      boardId={id}
       title={card.title}
       body={card.body}
       timestamp={card.timestamp}
@@ -37,7 +38,8 @@ function Board({name, cards}) {
 
 Board.propTypes = {
   name: PropTypes.string.isRequired,
-  cards: PropTypes.arrayOf(PropTypes.object)
+  cards: PropTypes.arrayOf(PropTypes.object),
+  // PropTypes.func.isRequired
 }
 
 export default Board;

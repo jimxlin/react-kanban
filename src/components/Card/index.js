@@ -23,7 +23,9 @@ const timestampStyle = {
   fontSize: '10px'
 }
 
-function Card({title, body, timestamp}) {
+function Card({ boardId, id, title, body, timestamp }) {
+  const
+
   const time = new Date(timestamp);
   return (
     <li style={listStyle}>
@@ -35,9 +37,12 @@ function Card({title, body, timestamp}) {
 }
 
 Card.propTypes = {
+  boardId: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  timestamp: PropTypes.number.isRequired
+  timestamp: PropTypes.number.isRequired,
+  // PropTypes.func.isRequired
 }
 
 export default Card;
