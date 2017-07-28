@@ -15,14 +15,16 @@ const ulStyle = {
   padding: '0'
 }
 
-function Board({ id, name, cards }) {
+function Board({ id, name, cards, moveLeft, moveRight }) {
   const listCards = cards.map(card =>
     <Card key={card.id.toString()}
+      boardId={card.boardId}
       id={card.id}
-      boardId={id}
       title={card.title}
       body={card.body}
       timestamp={card.timestamp}
+      moveLeft={moveLeft}
+      moveRight={moveRight}
     />
   );
   return (
@@ -39,7 +41,8 @@ function Board({ id, name, cards }) {
 Board.propTypes = {
   name: PropTypes.string.isRequired,
   cards: PropTypes.arrayOf(PropTypes.object),
-  // PropTypes.func.isRequired
+  moveLeft: PropTypes.func.isRequired,
+  moveRight: PropTypes.func.isRequired
 }
 
 export default Board;

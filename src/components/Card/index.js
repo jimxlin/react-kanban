@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const listStyle = {
-  padding: '10px',
+  marginBottom: '15px',
+  padding: '10px 10px 30px 10px',
   backgroundColor: '#e6f2ff',
   borderStyle: 'solid',
   borderColor: '#0066ff',
@@ -20,29 +21,49 @@ const bodyStyle = {
 }
 
 const timestampStyle = {
-  fontSize: '10px'
+  fontSize: '10px',
 }
 
-function Card({ boardId, id, title, body, timestamp }) {
-  const
+const moveDivStyle = {
+  paddingTop: '5px',
+  marginTop: '5px',
+  borderTopStyle: 'solid',
+  borderTopWidth: '1px'
+}
 
+function Card({ boardId, id, title, body, timestamp, moveLeft, moveRight }) {
   const time = new Date(timestamp);
   return (
     <li style={listStyle}>
       <b style={titleStyle}>{title}</b>
       <p style={bodyStyle}>{body}</p>
       <i style={timestampStyle}>{time.toString()}</i>
+      <br />
+      <div style={moveDivStyle}>
+        {boardId > 0 &&
+          <a href="#" style={{float: 'left'}}
+            onClick={() => moveLeft(id)}>
+            [move left]
+          </a>
+        }
+        {boardId < 2 &&
+          <a href="#" style={{float: 'right'}}
+            onClick={() => moveRight(id)}>
+            [move right]
+          </a>
+        }
+      </div>
     </li>
   );
 }
 
 Card.propTypes = {
-  boardId: PropTypes.number.isRequired,
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timestamp: PropTypes.number.isRequired,
-  // PropTypes.func.isRequired
+  moveLeft: PropTypes.func.isRequired,
+  moveRight: PropTypes.func.isRequired
 }
 
 export default Card;
