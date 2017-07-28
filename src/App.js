@@ -39,26 +39,23 @@ class App extends Component {
 
   // this doesn't work?
   handleMoveLeft = (cardId) => {
-    this.setState(prevState => {
-      var ary = prevState.cards.map(card =>
+    this.setState(prevState => ({
+      cards: prevState.cards.map(card =>
         card.id === cardId
-        ? {...card, boardId: card.boardId--}
+        ? {...card, boardId: card.boardId - 1}
         : card
       )
-      return {
-        cards: ary 
-      }
-    });
+    }));
   }
 
   handleMoveRight = (cardId) => {
-    this.setState(prevState => (
-      prevState.cards.map(card =>
+    this.setState(prevState => ({
+      cards: prevState.cards.map(card =>
         card.id === cardId
-        ? {...card, boardId: card.boardId++}
+        ? {...card, boardId: card.boardId + 1}
         : card
       )
-    ));
+    }));
   }
 
   render() {
