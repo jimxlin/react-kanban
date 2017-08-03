@@ -29,8 +29,10 @@ class App extends Component {
 
   }
 
-  handleDeleteCard(event) {
-
+  handleDeleteCard = (cardId) => {
+    this.setState(prevState => ({
+      cards: prevState.cards.filter(card => card.id !== cardId)
+    }));
   }
 
   handleMoveCard = (cardId, direction) => {
@@ -52,6 +54,7 @@ class App extends Component {
           card.boardId === board.id
         )}
         moveCard={this.handleMoveCard}
+        deleteCard={this.handleDeleteCard}
       />
     );
     return (

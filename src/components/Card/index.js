@@ -31,10 +31,13 @@ const moveDivStyle = {
   borderTopWidth: '1px'
 }
 
-function Card({ boardId, id, title, body, timestamp, moveCard }) {
+function Card({ boardId, id, title, body, timestamp, moveCard, deleteCard }) {
   const time = new Date(timestamp);
   return (
-    <li style={listStyle}>
+    <li style={listStyle} id={id}>
+      <a href="#" style={{float: 'right'}}
+        onClick={() => deleteCard(id)}
+        >[X]</a>
       <b style={titleStyle}>{title}</b>
       <p style={bodyStyle}>{body}</p>
       <i style={timestampStyle}>{time.toString()}</i>
@@ -62,8 +65,8 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timestamp: PropTypes.number.isRequired,
-  moveLeft: PropTypes.func.isRequired,
-  moveRight: PropTypes.func.isRequired
+  moveCard: PropTypes.func.isRequired,
+  deleteCard: PropTypes.func.isRequired
 }
 
 export default Card;
