@@ -15,7 +15,7 @@ const ulStyle = {
   padding: '0'
 }
 
-function Board({ id, name, cards, moveLeft, moveRight }) {
+function Board({ id, name, cards, moveCard }) {
   const listCards = cards.map(card =>
     <Card key={card.id.toString()}
       boardId={card.boardId}
@@ -23,8 +23,7 @@ function Board({ id, name, cards, moveLeft, moveRight }) {
       title={card.title}
       body={card.body}
       timestamp={card.timestamp}
-      moveLeft={moveLeft}
-      moveRight={moveRight}
+      moveCard={moveCard}
     />
   );
   return (

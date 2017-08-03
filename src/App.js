@@ -29,30 +29,15 @@ class App extends Component {
 
   }
 
-  handleMoveCard(event) {
-
-  }
-
   handleDeleteCard(event) {
 
   }
 
-  // this doesn't work?
-  handleMoveLeft = (cardId) => {
+  handleMoveCard = (cardId, direction) => {
     this.setState(prevState => ({
       cards: prevState.cards.map(card =>
         card.id === cardId
-        ? {...card, boardId: card.boardId - 1}
-        : card
-      )
-    }));
-  }
-
-  handleMoveRight = (cardId) => {
-    this.setState(prevState => ({
-      cards: prevState.cards.map(card =>
-        card.id === cardId
-        ? {...card, boardId: card.boardId + 1}
+        ? { ...card, boardId: card.boardId + direction }
         : card
       )
     }));
@@ -66,8 +51,7 @@ class App extends Component {
         cards={this.state.cards.filter(card =>
           card.boardId === board.id
         )}
-        moveLeft={this.handleMoveLeft}
-        moveRight={this.handleMoveRight}
+        moveCard={this.handleMoveCard}
       />
     );
     return (

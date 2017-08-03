@@ -31,7 +31,7 @@ const moveDivStyle = {
   borderTopWidth: '1px'
 }
 
-function Card({ boardId, id, title, body, timestamp, moveLeft, moveRight }) {
+function Card({ boardId, id, title, body, timestamp, moveCard }) {
   const time = new Date(timestamp);
   return (
     <li style={listStyle}>
@@ -42,13 +42,13 @@ function Card({ boardId, id, title, body, timestamp, moveLeft, moveRight }) {
       <div style={moveDivStyle}>
         {boardId > 0 &&
           <a href="#" style={{float: 'left'}}
-            onClick={() => moveLeft(id)}>
+            onClick={() => moveCard(id, -1)}>
             [move left]
           </a>
         }
         {boardId < 2 &&
           <a href="#" style={{float: 'right'}}
-            onClick={() => moveRight(id)}>
+            onClick={() => moveCard(id, 1)}>
             [move right]
           </a>
         }
