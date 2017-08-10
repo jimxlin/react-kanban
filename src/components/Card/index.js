@@ -16,10 +16,6 @@ const titleStyle = {
   fontSize: '18px'
 }
 
-const bodyStyle = {
-  fontSize: '14px'
-}
-
 const timestampStyle = {
   fontSize: '10px',
 }
@@ -39,7 +35,7 @@ function Card({ boardId, id, title, body, timestamp, moveCard, deleteCard }) {
         onClick={() => deleteCard(id)}
         >[X]</a>
       <b style={titleStyle}>{title}</b>
-      <p style={bodyStyle}>{body}</p>
+      <br />
       <i style={timestampStyle}>{time.toString()}</i>
       <br />
       <div style={moveDivStyle}>
@@ -63,7 +59,6 @@ function Card({ boardId, id, title, body, timestamp, moveCard, deleteCard }) {
 Card.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
   timestamp: PropTypes.number.isRequired,
   moveCard: PropTypes.func.isRequired,
   deleteCard: PropTypes.func.isRequired

@@ -4,9 +4,9 @@ import './App.css';
 import Board from './components/Board';
 
 const sampleCards = [
-  { id: 0, boardId: 0, title: 'Sample card A', body: 'Sample card body', timestamp: Date.now()},
-  { id: 1, boardId: 1, title: 'Sample card B', body: 'Sample card body', timestamp: Date.now()},
-  { id: 2, boardId: 2, title: 'Sample card C', body: 'Sample card body', timestamp: Date.now()},
+  { id: 0, boardId: 0, title: 'Sample card A', timestamp: Date.now()},
+  { id: 1, boardId: 1, title: 'Sample card B', timestamp: Date.now()},
+  { id: 2, boardId: 2, title: 'Sample card C', timestamp: Date.now()},
 ]
 
 const boards = [
@@ -25,8 +25,16 @@ class App extends Component {
     };
   }
 
-  handleCreateCard(event) {
-
+  handleCreateCard = (boardId, title) => {
+    this.setState(prevState => ({
+      cards: [...prevState.cards, {
+        id: prevState.cardCount,
+        boardId: boardId,
+        title: title,
+        timestamp: Date.now()
+      }],
+      cardCount: prevState.cardCount + 1
+    }));
   }
 
   handleDeleteCard = (cardId) => {
@@ -55,6 +63,7 @@ class App extends Component {
         )}
         moveCard={this.handleMoveCard}
         deleteCard={this.handleDeleteCard}
+        createCard={this.handleCreateCard}
       />
     );
     return (
