@@ -21,7 +21,6 @@ function Board({ id, name, cards, moveCard, deleteCard, createCard}) {
       boardId={card.boardId}
       id={card.id}
       title={card.title}
-      body={card.body}
       timestamp={card.timestamp}
       moveCard={moveCard}
       deleteCard={deleteCard}
@@ -39,7 +38,7 @@ function Board({ id, name, cards, moveCard, deleteCard, createCard}) {
       <label>
         Card Title:
         <input type="text" ref={(input) => titleInput = input} />
-        <button onClick={() => createCard(id, titleInput.value)}>
+       <button onClick={() => createCard(id, titleInput)}>
           Create Card
         </button>
       </label>

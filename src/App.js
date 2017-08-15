@@ -25,7 +25,10 @@ class App extends Component {
     };
   }
 
-  handleCreateCard = (boardId, title) => {
+  handleCreateCard = (boardId, inputRef) => {
+    const title = inputRef.value;
+    inputRef.value = '';
+    if (title == '' || title.search(/\A\s+\Z/)) return;
     this.setState(prevState => ({
       cards: [...prevState.cards, {
         id: prevState.cardCount,
