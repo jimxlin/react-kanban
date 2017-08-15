@@ -4,18 +4,25 @@ import { Col } from 'react-bootstrap';
 
 import Card from '../Card'
 
-const colStyle = {
-  padding: '10px',
-  textAlign: 'center'
-}
-
 const ulStyle = {
   listStyle: 'none',
   margin: '0 10px 10px 10px',
   padding: '0'
 }
 
+const hrStyle = {
+  borderColor: '#000'
+}
+
+const colColor = {0: '#F9E79F', 1: '#82E0AA', 2: '#85C1E9'}
+
 function Board({ id, name, cards, moveCard, deleteCard, createCard}) {
+  const colStyle = {
+    padding: '10px',
+    textAlign: 'center',
+    height: '100%',
+    backgroundColor: colColor[id]
+  }
   const listCards = cards.map(card =>
     <Card key={card.id.toString()}
       boardId={card.boardId}
@@ -31,7 +38,7 @@ function Board({ id, name, cards, moveCard, deleteCard, createCard}) {
   return (
     <Col xs={4} style={colStyle}>
       <h1>{name}</h1>
-      <hr />
+      <hr style={hrStyle}/>
       <ul style={ulStyle}>
         {listCards}
       </ul>

@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 const listStyle = {
   marginBottom: '15px',
   padding: '10px 10px 30px 10px',
-  backgroundColor: '#e6f2ff',
+  backgroundColor: '#FDFEFE',
   borderStyle: 'solid',
-  borderColor: '#0066ff',
+  borderColor: '#000',
   borderRadius: '5px',
   borderWidth: '1px',
   textAlign: 'left'
