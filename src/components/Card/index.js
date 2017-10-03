@@ -28,12 +28,21 @@ const moveDivStyle = {
 }
 
 class Card extends Component {
+  moveCardLeft = () => {
+    this.props.moveCard(this.props.id, -1)
+  }
+  moveCardRight = () => {
+    this.props.moveCard(this.props.id, 1)
+  }
+  deleteCard = () => {
+    this.props.deleteCard(this.props.id)
+  }
   render() {
     const time = new Date(this.props.timestamp);
     return (
       <li style={listStyle} id={this.props.id}>
-        <a href="#" style={{float: 'right'}}
-          onClick={() => this.props.deleteCard(this.props.id)}>
+        <a href="#delete" style={{float: 'right'}}
+          onClick={this.deleteCard}>
           [X]
         </a>
         <b style={titleStyle}>{this.props.title}</b>
@@ -42,14 +51,14 @@ class Card extends Component {
         <br />
         <div style={moveDivStyle}>
           {this.props.boardId > 0 &&
-            <a href="#" style={{float: 'left'}}
-              onClick={() => this.props.moveCard(this.props.id, -1)}>
+            <a href="#moveLeft" style={{float: 'left'}}
+              onClick={this.moveCardLeft}>
               [move left]
             </a>
           }
           {this.props.boardId < 2 &&
-            <a href="#" style={{float: 'right'}}
-              onClick={() => this.props.moveCard(this.props.id, 1)}>
+            <a href="#moveRight" style={{float: 'right'}}
+              onClick={this.moveCardRight}>
               [move right]
             </a>
           }

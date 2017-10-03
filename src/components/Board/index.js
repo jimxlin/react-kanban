@@ -17,6 +17,10 @@ const hrStyle = {
 const colColor = {0: '#F9E79F', 1: '#82E0AA', 2: '#85C1E9'}
 
 class Board extends Component {
+  createCard = () => {
+    this.props.createCard(this.props.id, this.titleInput);
+  }
+  titleInput = null;
 
   render() {
     const colStyle = {
@@ -35,7 +39,6 @@ class Board extends Component {
         deleteCard={this.props.deleteCard}
       />
     );
-    let titleInput = null;
     return (
       <Col xs={4} style={colStyle}>
         <h1>{this.props.name}</h1>
@@ -45,8 +48,8 @@ class Board extends Component {
         </ul>
         <label>
           Card Title:
-          <input type="text" ref={(input) => titleInput = input} />
-          <button onClick={() => this.props.createCard(this.props.id, titleInput)}>
+          <input type="text" ref={(input) => this.titleInput = input} />
+          <button onClick={this.createCard}>
             Create Card
           </button>
         </label>
