@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 const listStyle = {
@@ -27,33 +27,36 @@ const moveDivStyle = {
   borderTopWidth: '1px'
 }
 
-function Card({ boardId, id, title, body, timestamp, moveCard, deleteCard }) {
-  const time = new Date(timestamp);
-  return (
-    <li style={listStyle} id={id}>
-      <a href="#" style={{float: 'right'}}
-        onClick={() => deleteCard(id)}
-        >[X]</a>
-      <b style={titleStyle}>{title}</b>
-      <br />
-      <i style={timestampStyle}>{time.toString()}</i>
-      <br />
-      <div style={moveDivStyle}>
-        {boardId > 0 &&
-          <a href="#" style={{float: 'left'}}
-            onClick={() => moveCard(id, -1)}>
-            [move left]
-          </a>
-        }
-        {boardId < 2 &&
-          <a href="#" style={{float: 'right'}}
-            onClick={() => moveCard(id, 1)}>
-            [move right]
-          </a>
-        }
-      </div>
-    </li>
-  );
+class Card extends Component {
+  render() {
+    const time = new Date(this.props.timestamp);
+    return (
+      <li style={listStyle} id={this.props.id}>
+        <a href="#" style={{float: 'right'}}
+          onClick={() => this.props.deleteCard(this.props.id)}>
+          [X]
+        </a>
+        <b style={titleStyle}>{this.props.title}</b>
+        <br />
+        <i style={timestampStyle}>{time.toString()}</i>
+        <br />
+        <div style={moveDivStyle}>
+          {this.props.boardId > 0 &&
+            <a href="#" style={{float: 'left'}}
+              onClick={() => this.props.moveCard(this.props.id, -1)}>
+              [move left]
+            </a>
+          }
+          {this.props.boardId < 2 &&
+            <a href="#" style={{float: 'right'}}
+              onClick={() => this.props.moveCard(this.props.id, 1)}>
+              [move right]
+            </a>
+          }
+        </div>
+      </li>
+    );
+  }
 }
 
 Card.propTypes = {
