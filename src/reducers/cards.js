@@ -9,6 +9,7 @@ const initialState = [
 const cards = (state = initialState, action) => {
 	switch (action.type) {
 		case types.ADD_CARD:
+      if (action.text === '' || action.text.match(/^\s+$/) return state;
 			return [...state,
 				{
 					id: action.id,
