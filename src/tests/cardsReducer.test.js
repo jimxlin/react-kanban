@@ -14,7 +14,7 @@ describe ('cards reducer', () => {
 	];
 
 	it('should return the initial state', () => {
-		expect(reducer(undefined, {})).toEqual([]);
+		expect(reducer(undefined, {})).toHaveLength(3);
 	});
 
 	it('should handle ADD_CARD', () => {

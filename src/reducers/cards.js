@@ -1,6 +1,12 @@
 import * as types from '../constants/ActionTypes';
 
-const cards = (state = [], action) => {
+const initialState = [
+  { id: 0, boardId: 0, text: 'Sample card A', timestamp: Date.now()},
+  { id: 1, boardId: 1, text: 'Sample card B', timestamp: Date.now()},
+  { id: 2, boardId: 2, text: 'Sample card C', timestamp: Date.now()}
+]
+
+const cards = (state = initialState, action) => {
 	switch (action.type) {
 		case types.ADD_CARD:
 			return [...state,
