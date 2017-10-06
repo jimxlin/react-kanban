@@ -1,9 +1,9 @@
-import * from './types';
+import * as types from '../constants/ActionTypes';
 
 let nextCardId = 0;
 export const addCard = (boardId, text) => {
 	return {
-		type: ADD_CARD,
+		type: types.ADD_CARD,
 		id: nextCardId++,
 		boardId,
 		text
@@ -12,7 +12,7 @@ export const addCard = (boardId, text) => {
 
 export const moveCard = (id, direction) => {
 	return {
-		type: MOVE_CARD,
+		type: types.MOVE_CARD,
 		id,
 		direction
 	}
@@ -20,7 +20,7 @@ export const moveCard = (id, direction) => {
 
 export const deleteCard = id => {
 	return {
-		type: DELETE_CARD,
+		type: types.DELETE_CARD,
 		id
 	}
 }
