@@ -1,12 +1,12 @@
 import * as types from '../constants/ActionTypes';
 
 let nextCardId = 3;
-export const addCard = (boardId, text) => {
+export const addCard = (boardId, title) => {
 	return {
 		type: types.ADD_CARD,
 		id: nextCardId++,
 		boardId,
-		text
+		title
 	}
 }
 

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { addCard } from '../actions';
-import Card from '../components/Card';
+import { bindActionCreators } from 'redux';
+import { addCard, moveCard, deleteCard } from '../actions';
 import Board from '../components/Board';
 
 const getBoardCards = (cards, boardId) => {
@@ -16,12 +16,20 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => {
-	return bindActionCreators({ addCard }, dispatch)
+	return bindActionCreators({
+		addCard,
+		moveCard,
+		deleteCard
+	}, dispatch);
 };
 
-// const mapDispatchToProps = { addCard };
+// const mapDispatchToProps = { addCard, moveCard, deleteCard };
 
-export default connect(
+// TODO render all boards
+
+const BoardContainer = connect(
 	mapStateToProps,
 	mapDispatchToProps
 )(Board);
+
+export default BoardContainer;

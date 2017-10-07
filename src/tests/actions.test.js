@@ -6,14 +6,14 @@ describe('actions', () => {
 		const type = types.ADD_CARD;
 		const id = 3;
 		const boardId = 1;
-		const text = 'Job A';
+		const title = 'Job A';
 		const expectedAction = {
 			type,
 			id,
 			boardId,
-			text
+			title
 		};
-		expect(actions.addCard(boardId, text)).toEqual(expectedAction);
+		expect(actions.addCard(boardId, title)).toEqual(expectedAction);
 	});
 
 	it('should create an action to move a card', () => {

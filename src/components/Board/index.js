@@ -17,10 +17,10 @@ const hrStyle = {
 const colColor = {0: '#F9E79F', 1: '#82E0AA', 2: '#85C1E9'}
 
 class Board extends Component {
-  createCard = () => {
-    this.props.createCard(this.props.id, this.titleInput);
+  addCard = () => {
+    this.props.addCard(this.props.id, this.titleInput.value);
+    this.titleInput.value = null;
   }
-  titleInput = null;
 
   render() {
     const colStyle = {
@@ -48,9 +48,9 @@ class Board extends Component {
         </ul>
         <label>
           Card Title:
-          <input type="text" ref={(input) => this.titleInput = input} />
-          <button onClick={this.createCard}>
-            Create Card
+          <input type="text" ref={input => this.titleInput = input} />
+          <button onClick={this.addCard}>
+            Add Card
           </button>
         </label>
       </Col>
@@ -61,9 +61,9 @@ class Board extends Component {
 Board.propTypes = {
   name: PropTypes.string.isRequired,
   cards: PropTypes.arrayOf(PropTypes.object),
+  addCard: PropTypes.func.isRequired,
   moveCard: PropTypes.func.isRequired,
-  deleteCard: PropTypes.func.isRequired,
-  createCard: PropTypes.func.isRequired
+  deleteCard: PropTypes.func.isRequired
 }
 
 export default Board;

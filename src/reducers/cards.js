@@ -1,20 +1,15 @@
 import * as types from '../constants/ActionTypes';
 
-const initialState = [
-  { id: 0, boardId: 0, text: 'Sample card A', timestamp: Date.now()},
-  { id: 1, boardId: 1, text: 'Sample card B', timestamp: Date.now()},
-  { id: 2, boardId: 2, text: 'Sample card C', timestamp: Date.now()}
-]
-
-const cards = (state = initialState, action) => {
+const cards = (state = [], action) => {
 	switch (action.type) {
 		case types.ADD_CARD:
-      if (action.text === '' || action.text.match(/^\s+$/) return state;
+      if (action.title === '' || action.title.match(/^\s+$/)) return state;
 			return [...state,
 				{
 					id: action.id,
 					boardId: action.boardId,
-					text: action.text
+					title: action.title,
+					timestamp: Date.now()
 				}
 			];
 		case types.MOVE_CARD:

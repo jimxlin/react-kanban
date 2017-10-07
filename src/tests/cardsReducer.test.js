@@ -4,17 +4,17 @@ import * as types from '../constants/ActionTypes';
 describe ('cards reducer', () => {
 	const id = 0;
 	const boardId = 1;
-	const text = 'Test text';
+	const title = 'Test title';
 	const state = [
 		{
 			id,
 			boardId,
-			text
+			title
 		}
 	];
 
 	it('should return the initial state', () => {
-		expect(reducer(undefined, {})).toHaveLength(3);
+		expect(reducer(undefined, {})).toEqual([]);
 	});
 
 	it('should handle ADD_CARD', () => {
@@ -24,13 +24,14 @@ describe ('cards reducer', () => {
 			type,
 			id,
 			boardId,
-			text
+			title
 		};
 		expect(reducer(state, action)).toEqual([
 			{
 				id,
 				boardId,
-				text
+				title,
+				timestamp: expect.any(Number)
 			}
 		]);
 	});
@@ -47,7 +48,7 @@ describe ('cards reducer', () => {
 			{
 				id,
 				boardId: boardId + direction,
-				text
+				title
 			}
 		]);
 	});
