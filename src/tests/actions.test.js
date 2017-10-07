@@ -4,7 +4,7 @@ import * as types from '../constants/ActionTypes';
 describe('actions', () => {
 	it('should create an action to add a card', () => {
 		const type = types.ADD_CARD;
-		const id = 0;
+		const id = 3;
 		const boardId = 1;
 		const text = 'Job A';
 		const expectedAction = {

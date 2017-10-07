@@ -7,3 +7,5 @@ const initialState = [
 const boards = (state = initialState, action) => {
   return state;
 }
+
+export default boards;
