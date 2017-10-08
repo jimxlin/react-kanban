@@ -19,7 +19,7 @@ it('renders without crashing', () => {
     ]
   };
   let store = createStore(kanbanApp, initialState);;
-  
+
   const div = document.createElement('div');
   ReactDOM.render(
     <Provider store={store}>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Col } from 'react-bootstrap';
+import { Col, Button } from 'react-bootstrap';
 
 import Card from '../Card'
 
@@ -20,7 +20,7 @@ class Board extends Component {
   addCard = () => {
     this.props.addCard(this.props.id, this.titleInput.value);
     this.titleInput.value = null;
-  }
+  };
 
   render() {
     const colStyle = {
@@ -49,16 +49,17 @@ class Board extends Component {
         <label>
           Card Title:
           <input type="text" ref={input => this.titleInput = input} />
-          <button onClick={this.addCard}>
-            Add Card
-          </button>
         </label>
+        <Button onClick={this.addCard}>
+          Add Card
+        </Button>
       </Col>
     );
   }
 }
 
 Board.propTypes = {
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   cards: PropTypes.arrayOf(PropTypes.object),
   addCard: PropTypes.func.isRequired,
