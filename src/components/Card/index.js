@@ -1,31 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
-const listStyle = {
-  marginBottom: '15px',
-  padding: '10px 10px 30px 10px',
-  backgroundColor: '#FDFEFE',
-  borderStyle: 'solid',
-  borderColor: '#000',
-  borderRadius: '5px',
-  borderWidth: '1px',
-  textAlign: 'left'
-}
-
-const titleStyle = {
-  fontSize: '18px'
-}
-
-const timestampStyle = {
-  fontSize: '10px',
-}
-
-const moveDivStyle = {
-  paddingTop: '5px',
-  marginTop: '5px',
-  borderTopStyle: 'solid',
-  borderTopWidth: '1px'
-}
+import { CardListItem, CardTitle, Timestamp, MoveCardWrapper } from './styledComponents';
 
 class Card extends Component {
   moveCardLeft = () => {
@@ -40,16 +15,14 @@ class Card extends Component {
   render() {
     const time = new Date(this.props.timestamp);
     return (
-      <li style={listStyle} id={this.props.id}>
+      <CardListItem id={this.props.id}>
         <a href="#delete" style={{float: 'right'}}
           onClick={this.deleteCard}>
           [X]
         </a>
-        <b style={titleStyle}>{this.props.title}</b>
-        <br />
-        <i style={timestampStyle}>{time.toString()}</i>
-        <br />
-        <div style={moveDivStyle}>
+        <CardTitle>{this.props.title}</CardTitle>
+        <Timestamp>{time.toString()}</Timestamp>
+        <MoveCardWrapper>
           {this.props.boardId > 0 &&
             <a href="#moveLeft" style={{float: 'left'}}
               onClick={this.moveCardLeft}>
@@ -62,8 +35,8 @@ class Card extends Component {
               [move right]
             </a>
           }
-        </div>
-      </li>
+        </MoveCardWrapper>
+      </CardListItem>
     );
   }
 }
