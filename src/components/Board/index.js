@@ -1,20 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Col, Button } from 'react-bootstrap';
-
-import Card from '../Card'
-
-const ulStyle = {
-  listStyle: 'none',
-  margin: '0 10px 10px 10px',
-  padding: '0'
-}
-
-const hrStyle = {
-  borderColor: '#000'
-}
-
-const colColor = {0: '#F9E79F', 1: '#82E0AA', 2: '#85C1E9'}
+import { Button } from 'react-bootstrap';
+import { CardList, BoardCol } from './styledComponents';
+import Card from '../Card';
 
 class Board extends Component {
   addCard = () => {
@@ -23,12 +11,6 @@ class Board extends Component {
   };
 
   render() {
-    const colStyle = {
-      padding: '10px',
-      textAlign: 'center',
-      height: '100%',
-      backgroundColor: colColor[this.props.id]
-    };
     const listCards = this.props.cards.map(card =>
       <Card key={card.id.toString()}
         boardId={card.boardId}
@@ -40,20 +22,20 @@ class Board extends Component {
       />
     );
     return (
-      <Col xs={4} style={colStyle}>
+      <BoardCol xs={4} id={this.props.id}>
         <h1>{this.props.name}</h1>
-        <hr style={hrStyle}/>
-        <ul style={ulStyle}>
+        <hr style={{borderColor: '#000'}}/>
+        <CardList>
           {listCards}
-        </ul>
+        </CardList>
         <label>
-          Card Title:
+          Card Title: &nbsp;
           <input type="text" ref={input => this.titleInput = input} />
         </label>
         <Button onClick={this.addCard}>
           Add Card
         </Button>
-      </Col>
+      </BoardCol>
     );
   }
 }
