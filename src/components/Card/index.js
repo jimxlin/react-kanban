@@ -15,8 +15,8 @@ class Card extends Component {
   render() {
     const time = new Date(this.props.timestamp);
     return (
-      <CardListItem id={this.props.id}>
-        <a href="#delete" style={{float: 'right'}}
+      <CardListItem id={'card'+this.props.id} className={"card"}>
+        <a href="#delete" className={"delete-card-btn"} style={{float: 'right'}}
           onClick={this.deleteCard}>
           [X]
         </a>
@@ -24,13 +24,13 @@ class Card extends Component {
         <Timestamp>{time.toString()}</Timestamp>
         <MoveCardWrapper>
           {this.props.boardId > 0 &&
-            <a href="#moveLeft" style={{float: 'left'}}
+            <a href="#moveLeft" className={"move-card-btn"} style={{float: 'left'}}
               onClick={this.moveCardLeft}>
               [move left]
             </a>
           }
           {this.props.boardId < 2 &&
-            <a href="#moveRight" style={{float: 'right'}}
+            <a href="#moveRight" className={"move-card-btn"} style={{float: 'right'}}
               onClick={this.moveCardRight}>
               [move right]
             </a>

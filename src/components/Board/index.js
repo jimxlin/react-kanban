@@ -22,7 +22,7 @@ class Board extends Component {
       />
     );
     return (
-      <BoardCol xs={4} id={this.props.id}>
+      <BoardCol xs={4} id={'board-'+this.props.id} className={"board"}>
         <h1>{this.props.name}</h1>
         <hr style={{borderColor: '#000'}}/>
         <CardList>
@@ -32,7 +32,7 @@ class Board extends Component {
           Card Title: &nbsp;
           <input type="text" ref={input => this.titleInput = input} />
         </label>
-        <Button onClick={this.addCard}>
+        <Button onClick={this.addCard} className={"add-card-btn"}>
           Add Card
         </Button>
       </BoardCol>

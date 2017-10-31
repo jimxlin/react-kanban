@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Col } from 'react-bootstrap';
 
 const boardColor = props => {
-	const color = {0: '#F9E79F', 1: '#82E0AA', 2: '#85C1E9'};
+	const color = {'board-0': '#F9E79F', 'board-1': '#82E0AA', 'board-2': '#85C1E9'};
 	return color[props.id];
 };
 
@@ -11,7 +11,6 @@ export const BoardCol = styled(Col)`
 	text-align: center;
 	height: 100%;
 	background-color: ${boardColor};
-	}}
 `;
 
 export const CardList = styled.ul`
