@@ -24,13 +24,13 @@ class Card extends Component {
         <Timestamp>{time.toString()}</Timestamp>
         <MoveCardWrapper>
           {this.props.boardId > 0 &&
-            <a href="#moveLeft" className={"move-card-btn"} style={{float: 'left'}}
+            <a href="#moveLeft" className={"move-card-left-btn"} style={{float: 'left'}}
               onClick={this.moveCardLeft}>
               [move left]
             </a>
           }
           {this.props.boardId < 2 &&
-            <a href="#moveRight" className={"move-card-btn"} style={{float: 'right'}}
+            <a href="#moveRight" className={"move-card-right-btn"} style={{float: 'right'}}
               onClick={this.moveCardRight}>
               [move right]
             </a>
