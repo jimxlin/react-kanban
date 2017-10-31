@@ -11,13 +11,13 @@ describe('React Kanban App', () => {
     expect(actualTitle).to.eql('React Kanban');
   });
 
-  it('Should have three kanban boards', () => {
+  it('Should initially have three kanban boards', () => {
     browser.url('http://localhost:3000/');
 
     expect(browser.elements('.board').value.length).to.equal(3);
   });
 
-  it('Should have a card in each board', () => {
+  it('Should initally have a card in each board', () => {
     browser.url('http://localhost:3000/');
 
     boardIds.forEach(boardId => {
@@ -31,7 +31,7 @@ describe('React Kanban App', () => {
     boardIds.forEach(boardId => {
       browser.element(`${boardId} input`).setValue(cardName);
       browser.click(`${boardId} .add-card-btn`);
-      expect(browser.element(boardId).element(`p=${cardName}`).type).to.not.equal('NoSuchElement');
+      expect(browser.element(boardId).isExisting(`p=${cardName}`)).to.be.true;
     });
   });
 
@@ -41,10 +41,10 @@ describe('React Kanban App', () => {
 
     board.element('input').setValue(cardName);
     board.click('.add-card-btn');
-    expect(board.element(`p=${cardName}`)).to.not.equal('NoSuchElement');
+    expect(board.isExisting(`p=${cardName}`)).to.be.true;
 
     board.element(`p=${cardName}`).element('..').click('.delete-card-btn');
-    expect(board.element(`p=${cardName}`).type).to.equal('NoSuchElement');
+    expect(board.isExisting(`p=${cardName}`)).to.be.false;
   });
 
   it ('Should move cards left', () => {
@@ -56,8 +56,8 @@ describe('React Kanban App', () => {
     board.click('.add-card-btn');
     board.element(`p=${cardName}`).element('..').click('.move-card-left-btn');
 
-    expect(board.element(`p=${cardName}`).type).to.equal('NoSuchElement');
-    expect(leftBoard.element(`p=${cardName}`).type).to.not.equal('NoSuchElement');
+    expect(board.isExisting(`p=${cardName}`)).to.be.false;
+    expect(leftBoard.isExisting(`p=${cardName}`)).to.be.true;
   });
 
   it ('Should move cards right', () => {
@@ -68,8 +68,8 @@ describe('React Kanban App', () => {
     board.element('input').setValue(cardName);
     board.click('.add-card-btn');
     board.element(`p=${cardName}`).element('..').click('.move-card-right-btn');
-    
-    expect(board.element(`p=${cardName}`).type).to.equal('NoSuchElement');
-    expect(rightBoard.element(`p=${cardName}`).type).to.not.equal('NoSuchElement');
+
+    expect(board.isExisting(`p=${cardName}`)).to.be.false;
+    expect(rightBoard.isExisting(`p=${cardName}`)).to.be.true;
   });
 });
