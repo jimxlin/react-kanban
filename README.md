@@ -7,6 +7,6 @@ This is a simple kanban board SPA implemented with:
 
 Testing is done with:
   - [Jest](https://facebook.github.io/jest/) for unit tests
-  - [Selenium Webdrive](http://www.seleniumhq.org/projects/webdriver/) + [WebDriverIO](http://webdriver.io/) + [Chai](http://chaijs.com/) for e2e testing
+  - [Selenium Webdriver](http://www.seleniumhq.org/projects/webdriver/) + [WebDriverIO](http://webdriver.io/) + [Chai](http://chaijs.com/) for e2e testing
 
 Demo [here](https://miljinx.github.io/react-kanban/).
