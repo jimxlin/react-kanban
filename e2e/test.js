@@ -7,4 +7,8 @@ describe('React Kanban App', () => {
 
     expect(actualTitle).to.eql('React Kanban');
   });
+
+  it('Should have three kanban boards', () => {
+    
+  });
 });

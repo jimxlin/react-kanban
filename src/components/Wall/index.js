@@ -10,7 +10,7 @@ const Wall = props => {
     />
   );
   return (
-    <div className="wall">
+    <div className={"wall"}>
       {boards}
     </div>
   );
