@@ -16,7 +16,7 @@ class Card extends Component {
     const time = new Date(this.props.timestamp);
     return (
       <CardListItem id={'card'+this.props.id} className={"card"}>
-        <a href="#delete" style={{float: 'right'}}
+        <a href="#delete" className={"delete-card-btn"} style={{float: 'right'}}
           onClick={this.deleteCard}>
           [X]
         </a>
