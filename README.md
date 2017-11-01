@@ -6,7 +6,7 @@ This is a simple kanban board SPA implemented with:
   - [styled-components](https://github.com/styled-components/styled-components)
 
 Testing is done with:
-  - [Jest](https://facebook.github.io/jest/) for unit tests
+  - [Jest](https://facebook.github.io/jest/) & [Enzyme](http://airbnb.io/enzyme/) for unit tests
   - [Selenium Webdriver](http://www.seleniumhq.org/projects/webdriver/) + [WebDriverIO](http://webdriver.io/) + [Chai](http://chaijs.com/) for e2e testing
 
 Demo [here](https://miljinx.github.io/react-kanban/).
