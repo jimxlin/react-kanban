@@ -20,8 +20,8 @@ class Card extends Component {
           onClick={this.deleteCard}>
           [X]
         </a>
-        <CardTitle>{this.props.title}</CardTitle>
-        <Timestamp>{time.toString()}</Timestamp>
+        <CardTitle className={"card-title"}>{this.props.title}</CardTitle>
+        <Timestamp className={"card-timestamp"}>{time.toString()}</Timestamp>
         <MoveCardWrapper>
           {this.props.boardId > 0 &&
             <a href="#moveLeft" className={"move-card-left-btn"} style={{float: 'left'}}
