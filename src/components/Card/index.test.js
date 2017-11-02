@@ -26,5 +26,7 @@ describe('<Card />', () => {
 			.toEqual(testTitle);
 		expect(renderedComponent.find('.card-timestamp').first().text())
 			.toEqual(Date(testTime));
+
+		renderedComponent.unmount();
 	});
 });

@@ -23,7 +23,7 @@ class Board extends Component {
     );
     return (
       <BoardCol xs={4} id={'board-'+this.props.id} className={"board"}>
-        <h1>{this.props.name}</h1>
+        <h1 className={"board-name"}>{this.props.name}</h1>
         <hr style={{borderColor: '#000'}}/>
         <CardList>
           {listCards}
