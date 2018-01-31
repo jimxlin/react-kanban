@@ -11,14 +11,14 @@ import registerServiceWorker from './registerServiceWorker';
 
 const initialState = {
   boards: [
-    { name: 'Todo',  id: 0 },
-    { name: 'Doing', id: 1 },
-    { name: 'Done',  id: 2 }
+    { name: 'Todo',  id: 1 },
+    { name: 'Doing', id: 2 },
+    { name: 'Done',  id: 3 }
   ],
   cards: [
-    { id: 0, boardId: 0, title: 'Sample Card A', timestamp: Date.now()},
-    { id: 1, boardId: 1, title: 'Sample Card B', timestamp: Date.now()},
-    { id: 2, boardId: 2, title: 'Sample Card C', timestamp: Date.now()}
+    { id: 1, boardId: 1, title: 'Sample Card A', timestamp: Date.now()},
+    { id: 2, boardId: 2, title: 'Sample Card B', timestamp: Date.now()},
+    { id: 3, boardId: 3, title: 'Sample Card C', timestamp: Date.now()}
   ]
 };
 

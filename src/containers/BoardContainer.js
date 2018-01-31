@@ -18,9 +18,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({
-  addCard,
-  moveCard,
-  deleteCard
+    addCard,
+    moveCard,
+    deleteCard
   }, dispatch);
 };
 
