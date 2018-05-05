@@ -10,9 +10,9 @@ const sampleCards = [
 ]
 
 const boards = [
-  { name: 'Todo',  id: 0, cards: [sampleCards[0]] },
-  { name: 'Doing', id: 1, cards: [sampleCards[1]] },
-  { name: 'Done',  id: 2, cards: [sampleCards[2]] }
+  { name: 'Todo',  id: 0 },
+  { name: 'Doing', id: 1 },
+  { name: 'Done',  id: 2 },
 ]
 
 class App extends Component {
